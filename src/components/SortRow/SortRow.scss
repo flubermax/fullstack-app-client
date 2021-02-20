@@ -1,0 +1,24 @@
+.sortRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  margin: 10px 0 0;
+
+  &__block {
+    display: flex;
+
+    &__text {
+      font-weight: 700;
+    }
+
+    &__item {
+      cursor: pointer;
+      transition: all 0.1s linear;
+      margin-left: 10px;
+      &:hover {
+        color: grey;
+      }
+    }
+  }
+}

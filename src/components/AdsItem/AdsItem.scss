@@ -1,0 +1,111 @@
+.ads__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 30px;
+
+  &__image {
+    width: 15%;
+    height: 130px;
+    overflow: hidden;
+    border-radius: 5px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      vertical-align: top;
+    }
+  }
+
+  &__col {
+    width: 40%;
+  }
+  &__name {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    transition: all 0.1s linear;
+    &:hover{
+      color: #2AA395;
+    }
+  }
+  &__about {
+    line-height: 20px;
+  }
+
+  &__price {
+    width: 25%;
+    text-align: center;
+  }
+
+  &__btn {
+    width: 10%;
+    height: 30px;
+    cursor: pointer;
+    background-color: #ADDDE8;
+    border: none;
+    border-radius: 5px;
+    &:hover{
+      background-color: darken(#ADDDE8, 8%);
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    }    
+  }
+}
+
+.ads__popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  transition: all 0.1s linear;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__body {
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #fff;
+    border-radius: 5px;
+    &__title {
+      font-size: 22px;
+      margin: 0 0 10px;
+    }
+    &__link {
+      font-size: 20px;
+      color: green;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #000;
+    mask-image: url('../../assets/img/close.svg');
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    transition: all 0.1s linear;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

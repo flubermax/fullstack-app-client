@@ -1,0 +1,26 @@
+.newAd {
+  margin: 20px 0;
+
+  &__title {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  &__form {
+    margin: 15px 0 0;
+  }
+
+  &__buttonsRow{
+    display: flex;
+    align-items: center;
+    a{
+      margin-right: 20px;
+    }
+  }
+  &__complete{
+    font-size: 18px;
+    font-weight: 500;
+    color: green;
+    margin-left: 30px;
+  }
+}
