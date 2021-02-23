@@ -3,7 +3,7 @@ import styled, {css} from 'styled-components'
 
 const StyledButton = styled.button`
 font-weight: 700;
-color: #fff;
+color: ${props => props.color};
 background: ${props => props.background};
 border: none;
 border-radius: 5px;
@@ -15,20 +15,25 @@ transition: all 0.15s linear;
 }
 ${props => props.primary && css`
   color: ${props => props.color || '#fff'};
-  background: ${props => props.background || 'red'};
+  background: ${props => props.background || 'green'};
 `}
 ${props => props.outlined && css`
-  color: ${props => props.color || '#000'};
-  border: 1px solid ${props => props.color || '#000'};
+  color: ${props => props.color || 'green'};
+  border: 1px solid ${props => props.color || 'green'};
   background: transparent;
+  &:hover{
+    color: #fff;
+    background: ${props => props.color || 'green'};
+  }
 `}
 `
 
-const LargeButton = styled(StyledButton)`
-font-size: 30px;
+const SmallButton = styled(StyledButton)`
+font-size: 15px;
+padding: 8px;
 `
 
-const Button = (props) => {
+export const Button = (props) => {
   return <StyledButton {...props} />
 }
 

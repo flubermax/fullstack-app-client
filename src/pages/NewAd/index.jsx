@@ -1,4 +1,5 @@
 import React from 'react'
+import InputMask from "react-input-mask";
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { addAdsAction } from '../../store/adsReducer';
@@ -55,12 +56,11 @@ const NewAd = () => {
 
   const phoneHandler = (e) => {
     setPhone(e.target.value)
-    // const re = /^[\+]?[0-9]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2}[-\s\.]?[0-9]{2}$/im
-    // if (!re.test(e.target.value)) {
-    //   setPhoneError('Некорректный номер телефона')
-    // } else {
-    //   setPhoneError('')
-    // }
+    if (e.target.value.replace(/[^0-9]/g, '').length !== 11) {
+      setPhoneError('Некорректный номер телефона')
+    } else {
+      setPhoneError('')
+    }
   }
 
   const blurHandler = (e) => {
@@ -72,6 +72,8 @@ const NewAd = () => {
       case 'phone':
         setPhoneDirty(true)
         break
+
+        default: return true
     }
   }
 
@@ -139,7 +141,9 @@ const NewAd = () => {
         name="price"
       />
        {(phoneDirty && phoneError) && <div className="error">{phoneError}</div>}
-      <Input
+      <InputMask 
+        mask="+7 (999) 999-99-99" 
+        maskPlaceholder="_" 
         value={phone}
         onChange={e => phoneHandler(e)}
         onBlur={e => blurHandler(e)}
@@ -147,14 +151,14 @@ const NewAd = () => {
         type="text"
         placeholder="Введите номер телефона (обязательно)"
         name="phone"
-      />
+        />
       </form>
 
       <div className="newAd__buttonsRow">
         <Link to="/">
           <Button outlined>Назад</Button>
         </Link>
-        <Button background={"green"} onClick={addItem} disabled={!formValid} type="submit">
+        <Button primary onClick={addItem} disabled={!formValid} type="submit">
           Добавить
         </Button>
         {

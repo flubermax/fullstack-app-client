@@ -14,7 +14,7 @@ const SortRow = () => {
         <div className="sortRow__block__item">Цене</div>
       </div>
       <Link to="/new">
-        <Button background={"green"}>Добавить объявление</Button>
+        <Button primary>Добавить объявление</Button>
       </Link>
     </div>
   )
