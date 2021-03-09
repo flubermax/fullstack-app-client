@@ -1,5 +1,6 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import PropTypes from 'prop-types'
+import { useDispatch } from 'react-redux'
 import { removeAdsAction } from '../store/adsReducer';
 import styled from 'styled-components'
 
@@ -9,9 +10,9 @@ const StyledAdsList = styled.div`
 padding: 0 10px;
 `
 
-const AdsList = (props) => { 
-  const myAds = useSelector((state) => state.ads)
+const AdsList = (props) => {   
   const dispatch = useDispatch()
+  console.log(props)
 
   const onRemoveItem = (id) => {
     if (window.confirm('Точно удалить это объявление??')) {
@@ -21,15 +22,25 @@ const AdsList = (props) => {
 
   return (
     <StyledAdsList {...props}>
-      {myAds.length > 0 ? 
+      {props.ads.length > 0 ? 
       <div>
-        {myAds.map((ad) => (
+        {props.ads.map((ad) => (
           <AdsItem key={ad.id} id={ad.id} name={ad.name} image={ad.image} about={ad.about} price={ad.price} phone={ad.phone} removeAd={onRemoveItem} />
         ))}
       </div> : <div className="noAds">Активных объявлений пока нет :(</div>}
        
     </StyledAdsList>
   )
+}
+
+AdsList.propTypes = {
+  id: PropTypes.number,
+  image: PropTypes.string,
+  name: PropTypes.string,  
+  about: PropTypes.string,
+  price: PropTypes.number,
+  phone: PropTypes.string,
+  removeAd: PropTypes.func,
 }
 
 export default AdsList

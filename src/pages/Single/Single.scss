@@ -1,0 +1,68 @@
+.single{  
+  justify-content: space-between;  
+  margin: 0 0 30px;
+
+  &__top {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    border-bottom: 1px solid #CDC9C9;
+    padding: 5px 0;
+    margin: 0 0 30px;
+    a{
+      margin-left: 20px;
+    }
+  }
+
+  &__content{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__image{
+    width: 45%;
+    border-radius: 5px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      vertical-align: top;
+    }
+  }
+
+  &__body {
+    width: 55%;
+    padding-left: 40px;
+  }
+
+  &__name{
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  &__about{
+    line-height: 23px;
+    border-top: 1px solid #D7E7E7;
+    border-bottom: 1px solid #D7E7E7;
+    padding: 30px 0;
+    margin: 30px 0;
+  }
+
+  &__price{
+    span{
+      font-weight: 500;
+      margin-right: 7px;
+    }
+  }
+
+  &__phone{
+    margin-top: 15px;
+    span{
+      font-weight: 500;
+      margin-right: 7px;
+    }
+  }
+
+}

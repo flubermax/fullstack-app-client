@@ -1,24 +1,47 @@
-.sortRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.sort {
+  position: relative;
   padding: 0 10px;
   margin: 15px 0;
 
-  &__block {
-    display: flex;
-
-    &__text {
-      font-weight: 700;
-    }
-
-    &__item {
+  &__label {
+    span{
+      color: grey;
       cursor: pointer;
-      transition: all 0.1s linear;
-      margin-left: 10px;
-      &:hover {
-        color: grey;
+      margin-left: 12px;
+      transition: all .1s linear;
+      &:hover{
+        color: green;
       }
     }
   }
+
+  &__dropdown {
+    position: absolute;
+    z-index: 3;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #CDC9C9;
+    opacity: 0;
+    visibility: hidden;
+    
+    &.active{
+      opacity: 1;
+      visibility: visible;
+
+    }
+    &__item {
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.1s linear;
+      &:hover {
+        color: grey;
+      }
+      &.active{
+        color: orange;
+      }
+    }
+  }    
 }

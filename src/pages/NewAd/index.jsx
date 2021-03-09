@@ -156,7 +156,7 @@ const NewAd = () => {
 
       <div className="newAd__buttonsRow">
         <Link to="/">
-          <Button outlined>Назад</Button>
+          <Button outlined>На главную</Button>
         </Link>
         <Button primary onClick={addItem} disabled={!formValid} type="submit">
           Добавить

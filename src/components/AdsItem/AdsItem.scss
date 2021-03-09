@@ -34,7 +34,7 @@
   }
 
   &__image {
-    width: 15%;
+    flex: 0 0 170px;
     height: 130px;
     overflow: hidden;
     border-radius: 5px;
@@ -51,8 +51,10 @@
     width: 40%;
   }
   &__name {
+    display: block;
     font-size: 20px;
     font-weight: 700;
+    color: #000;
     margin: 0 0 10px;
     transition: all 0.1s linear;
     &:hover{
@@ -70,7 +72,7 @@
 
   &__btn {
     width: 10%;
-    height: 30px;
+    height: 40px;
     cursor: pointer;
     background-color: #ADDDE8;
     border: none;

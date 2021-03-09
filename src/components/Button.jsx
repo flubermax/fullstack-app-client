@@ -28,10 +28,10 @@ ${props => props.outlined && css`
 `}
 `
 
-const SmallButton = styled(StyledButton)`
-font-size: 15px;
-padding: 8px;
-`
+// const SmallButton = styled(StyledButton)`
+// font-size: 15px;
+// padding: 8px;
+// `
 
 export const Button = (props) => {
   return <StyledButton {...props} />
