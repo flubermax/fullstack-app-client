@@ -7,22 +7,25 @@
   padding: 30px 0 0;
   margin: 0 0 30px;
 
-  &__del {
-    font-size: 12px;
+  &__like {
+    font-size: 13px;
     font-style: italic;
     position: absolute;
     top: 20px;
-    right: 10px;    
+    right: 0;
+    background-color: transparent;
+    border: none;
     cursor: pointer;
     transition: all 0.1s linear;
     &:before{
       content: '';
       display: inline-block;
       background-color: #000;
-      mask-image: url('../../assets/img/close.svg');
-      width: 8px;
-      height: 8px;
-      margin-right: 4px;
+      mask-image: url('../../assets/img/favorite.svg');
+      mask-position: center;
+      mask-repeat: no-repeat;
+      width: 14px;
+      height: 14px;
       transition: all 0.1s linear;
     }
     &:hover {
@@ -38,6 +41,7 @@
     height: 130px;
     overflow: hidden;
     border-radius: 5px;
+    margin-right: 20px;
     img {
       width: 100%;
       height: 100%;
@@ -48,7 +52,7 @@
   }
 
   &__col {
-    width: 40%;
+    flex-grow: 1;
   }
   &__name {
     display: block;
@@ -66,12 +70,13 @@
   }
 
   &__price {
-    width: 25%;
+    flex: 0 0 25%;
     text-align: center;
+    padding: 0 15px;
   }
 
   &__btn {
-    width: 10%;
+    flex: 0 0 150px;
     height: 40px;
     cursor: pointer;
     background-color: #ADDDE8;

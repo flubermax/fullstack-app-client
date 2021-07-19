@@ -2,30 +2,28 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { setPageId } from '../../store/singlePageReducer'
+import { setPageId } from '../../reducers/singlePageReducer'
 
 import './AdsItem.scss'
 
 import photoPlaceholder from '../../assets/img/nophoto.jpg';
 import Modal from '../Modal';
 
-const AdsItem = ({ id, image, name, about, price, phone, removeAd }) => {
+const AdsItem = ({ id, image, name, about, price, phone, addToFavorite }) => {
   const dispatch = useDispatch()
-
   const [visiblePopup, setVisiblePopup] = React.useState(false)
 
-  const handleRemoveClick = () => {
-    removeAd(id)
+  const handleLikeClick = () => {
+    addToFavorite(id)
   }
 
   const setSinglePageId = React.useCallback((pageId) => {
     dispatch(setPageId(pageId))
-     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [dispatch])
 
   return (
     <div className="ads__item">
-      <div className="ads__item__del" onClick={handleRemoveClick}>удалить</div>
+      <button className="ads__item__like" onClick={handleLikeClick}></button>
       <div className="ads__item__image">
         <img src={image ? image : photoPlaceholder} alt="фото" />
       </div>
@@ -48,11 +46,11 @@ const AdsItem = ({ id, image, name, about, price, phone, removeAd }) => {
 }
 
 AdsItem.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
   image: PropTypes.string,
   name: PropTypes.string,  
   about: PropTypes.string,
-  price: PropTypes.number,
+  price: PropTypes.string,
   phone: PropTypes.string,
   removeAd: PropTypes.func,
 }

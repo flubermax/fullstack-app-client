@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import './SortRow.scss'
+import './Sort.scss'
 
-const SortRow = ({items, activeSortType, onClickSortType}) => {
+const Sort = ({items, activeSortType, onClickSortType}) => {
   const [visiblePopup, setVisiblePopup] = React.useState(false);
   const sortRef = React.useRef();
   const activeLabel = items.find((obj) => obj.type === activeSortType).name;
@@ -50,10 +50,10 @@ const SortRow = ({items, activeSortType, onClickSortType}) => {
   )
 }
 
-SortRow.propTypes = {
+Sort.propTypes = {
   items: PropTypes.array,
   activeSortType: PropTypes.string,
   onClickSortType: PropTypes.func,
 }
 
-export default SortRow
+export default Sort

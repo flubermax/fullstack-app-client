@@ -36,12 +36,11 @@ body {
   text-align: center;
   padding: 50px 0 65px;
 }
-a {
+a, button {
   text-decoration: none;
   transition: all 0.15s linear;
 }
 button {
-  transition: all 0.15s linear;
   &:disabled{
     pointer-events: none;
     background-color: grey;

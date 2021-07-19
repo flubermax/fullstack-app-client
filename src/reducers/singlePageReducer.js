@@ -1,6 +1,6 @@
 const defaultState = {
   singleAd: {},
-  pageId: 1,
+  pageId: null,
   isLoaded: false
 }
 

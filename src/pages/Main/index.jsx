@@ -1,10 +1,11 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 
-import { SortRow, AdsList, LoadingBlock, Button } from '../../components'
-import { fetchAds } from '../../store/fetchAds'
-import { setSortBy } from '../../store/sortReducer'
+import { Sort, AdsList, LoadingBlock } from '../../components'
+import { fetchAds } from '../../actions/adsAction'
+import { setSortBy } from '../../reducers/sortReducer'
+
+import './Main.scss'
 
 const sortItems = [
   { name: 'дате', type: 'date', order: 'desc' },
@@ -14,29 +15,23 @@ const sortItems = [
 
 const Main = () => {
   const dispatch = useDispatch()
-  const myAds = useSelector(state => state.adsReducer.ads)
-  const isLoaded = useSelector(state => state.adsReducer.isLoaded)
+  const { ads, isLoaded } = useSelector(({ adsReducer }) => adsReducer)
   const { sortBy } = useSelector(({ sortReducer }) => sortReducer)
 
   React.useEffect(() => {
     dispatch(fetchAds(sortBy))
-     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sortBy])
+  }, [dispatch, sortBy])
 
   const onSelectSortType = React.useCallback((type) => {
     dispatch(setSortBy(type))
-     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [dispatch])
 
   return (
     <div className="main">
-      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-        <SortRow items={sortItems} activeSortType={sortBy.type} onClickSortType={onSelectSortType} />
-        <Link to="/new">
-          <Button primary>Добавить объявление</Button>
-        </Link>      
+      <div className="main__sort">
+        <Sort items={sortItems} activeSortType={sortBy.type} onClickSortType={onSelectSortType} />   
       </div>
-      {isLoaded ? <AdsList ads={myAds} /> : Array(4).fill(0).map((_, index) => <LoadingBlock key={index} />)}        
+      {isLoaded ? <AdsList ads={ads} /> : Array(4).fill(0).map((_, index) => <LoadingBlock key={index} />)}        
     </div>
   )
 }

@@ -1,8 +1,7 @@
 import React from 'react'
-import InputMask from "react-input-mask";
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
-import { addAdsAction } from '../../store/adsReducer';
+import { addAdsAction } from '../../reducers/adsReducer';
 
 import { Button, Input } from '../../components'
 
@@ -14,21 +13,18 @@ const NewAd = () => {
   const [about, setAbout] = React.useState('')
   const [name, setName] = React.useState('')
   const [price, setPrice] = React.useState('')
-  const [phone, setPhone] = React.useState('')
   const [nameDirty, setNameDirty] = React.useState(false)  
-  const [phoneDirty, setPhoneDirty] = React.useState(false)
   const [nameError, setNameError] = React.useState('Введите название объявления')
-  const [phoneError, setPhoneError] = React.useState('Введите номер телефона')
   const [formValid, setFormValid] = React.useState(false)
   const [newAddSuccess, setNewAddSuccess] = React.useState(false)
 
   React.useEffect(() => {
-    if (nameError || phoneError) {
+    if (nameError) {
       setFormValid(false)
     } else {
       setFormValid(true)
     }
-  }, [nameError, phoneError])  
+  }, [nameError])  
 
   const imageHandler = (e) => {
     setImage(e.target.value)
@@ -54,23 +50,10 @@ const NewAd = () => {
     setPrice(e.target.value)
   }
 
-  const phoneHandler = (e) => {
-    setPhone(e.target.value)
-    if (e.target.value.replace(/[^0-9]/g, '').length !== 11) {
-      setPhoneError('Некорректный номер телефона')
-    } else {
-      setPhoneError('')
-    }
-  }
-
   const blurHandler = (e) => {
     switch (e.target.name) {
       case 'name':
         setNameDirty(true)
-        break
-
-      case 'phone':
-        setPhoneDirty(true)
         break
 
         default: return true
@@ -83,8 +66,7 @@ const NewAd = () => {
       image,
       name,
       about,
-      price,
-      phone
+      price
     }
     dispatch(addAdsAction(ad))
 
@@ -92,7 +74,6 @@ const NewAd = () => {
     setName('')
     setAbout('')
     setPrice('')
-    setPhone('')
 
     setNewAddSuccess(true)
     setFormValid(false)
@@ -139,25 +120,13 @@ const NewAd = () => {
         type="text"
         placeholder="Укажите цену"
         name="price"
-      />
-       {(phoneDirty && phoneError) && <div className="error">{phoneError}</div>}
-      <InputMask 
-        mask="+7 (999) 999-99-99" 
-        maskPlaceholder="_" 
-        value={phone}
-        onChange={e => phoneHandler(e)}
-        onBlur={e => blurHandler(e)}
-        id="phone"
-        type="text"
-        placeholder="Введите номер телефона (обязательно)"
-        name="phone"
-        />
+      />     
       </form>
 
       <div className="newAd__buttonsRow">
-        <Link to="/">
+        <NavLink to="/">
           <Button outlined>На главную</Button>
-        </Link>
+        </NavLink>
         <Button primary onClick={addItem} disabled={!formValid} type="submit">
           Добавить
         </Button>

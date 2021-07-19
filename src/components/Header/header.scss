@@ -1,0 +1,71 @@
+.header {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__bottom{
+    display: flex;
+    justify-content: flex-end;
+    background-color: #f6f6f6;
+    padding: 5px;
+    margin: 5px 0 0;
+  }
+
+  &__services{
+    display: flex;
+    align-items: center;
+
+    &__item{
+      font-size: 14px;
+      font-weight: 500;
+      margin-right: 10px;
+      &:hover{color: green;}
+    }
+  }
+
+  &__auth{
+    display: flex;
+    align-items: center;
+    &__item{
+      color: blue;
+      cursor: pointer;
+      &:hover{color: green;}
+    }
+    &__currentUser{
+      font-weight: 500;
+      margin-right: 15px;
+    }
+    span{
+      width: 1px;
+      height: 20px;
+      background-color: blue;
+      margin: 0 10px;
+    }
+  }
+}
+
+.logo {
+  color: #000;
+  transition: all 0.1s linear;
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &__name {
+    font-size: 20px;
+    font-weight: 500;
+    span{
+      font-size: 25px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+
+  &__text {
+    font-size: 15px;
+    font-style: italic;
+    margin-top: 5px;
+  }
+}

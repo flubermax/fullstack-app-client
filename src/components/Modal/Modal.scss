@@ -27,7 +27,7 @@
 
   &__body {
     width: 300px;
-    height: 200px;
+    min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -35,6 +35,13 @@
     position: relative;
     background-color: #fff;
     border-radius: 5px;
+    padding: 40px 30px;
+    &__inner{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
     &__title {
       font-size: 22px;
       margin: 0 0 10px;

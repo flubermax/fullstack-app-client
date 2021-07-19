@@ -2,7 +2,7 @@
 	"ads": [
     {
       "id": 1,
-      "image": "https://w-max.ru/img/audi.jpg",
+      "image": "https://w-max.ru/resourses/audi.jpg",
       "name": "Audi A4",
       "about": "В хорошем состоянии, 2 владельца, крашены капот и бампер. Дсг после ремонта. Помощь в продаже не требуется",
       "price": 750000,
@@ -11,16 +11,15 @@
     },
     {
       "id": 2,
-      "image": "https://w-max.ru/img/powerbank.jpg",
+      "image": "https://w-max.ru/resourses/powerbank.jpg",
       "name": "Powerbank",
       "about": "Почти новый. Чек, гарантия.",
-
       "phone": "+7 (902) 288-05-77",
       "date": "8"
     },
     {
       "id": 3,
-      "image": "https://w-max.ru/img/dell.jpg",
+      "image": "https://w-max.ru/resourses/dell.jpg",
       "name": "Монитор Dell",
       "about": "Без дефектов. 24 дюйма, состояние хорошее",
       "price": 6500,
@@ -29,7 +28,7 @@
     },
     {
       "id": 4,
-      "image": "https://w-max.ru/img/subaru.jpg",
+      "image": "https://w-max.ru/resourses/subaru.jpg",
       "name": "Subaru Impreza WRX",
       "about": "Колёса на 18, чип, выхлоп. Новое сцепление. Турбина требует ремонта",
       "price": 877300,

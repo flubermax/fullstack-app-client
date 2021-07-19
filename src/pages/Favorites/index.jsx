@@ -1,20 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchSinglePage } from '../../actions/adsAction'
-
-import { Button } from '../../components'
+import { useDispatch } from 'react-redux'
 
 import './Single.scss'
-import photoPlaceholder from '../../assets/img/nophoto.jpg';
 
-const SinglePage = () => {
+const Favorites = () => {
   const dispatch = useDispatch()
-  const { singleAd, pageId, isLoaded } = useSelector(({ singlePageReducer }) => singlePageReducer)
 
   React.useEffect(() => {
-    dispatch(fetchSinglePage(pageId))
-  }, [pageId, dispatch])
+
+  }, [])
 
   return (
     <div className="single">
@@ -53,4 +48,4 @@ const SinglePage = () => {
   );
 }
 
-export default SinglePage;
+export default Favorites;
